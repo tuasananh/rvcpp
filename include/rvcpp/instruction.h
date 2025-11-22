@@ -16,9 +16,9 @@ namespace rvcpp {
     uint32_t funct7() const;
     uint32_t sign_extended_imm_i() const;
     uint32_t uimm() const;
-    uint32_t imm_s() const;
-    uint32_t imm_b() const;
-    uint32_t imm_u() const;
-    uint32_t imm_j() const;
+    uint32_t sign_extended_imm_s() const;
+    uint32_t branch_target_address() const;
+    uint32_t upimm() const;
+    uint32_t jump_target_address() const;
   };
 }  // namespace rvcpp
