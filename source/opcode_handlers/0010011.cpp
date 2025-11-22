@@ -22,10 +22,10 @@ namespace rvcpp {
         break;
       }
       case 0b010: {  // slti rd, rs1, imm
-        registers.write(instr.rd(),
-                        static_cast<int32_t>(registers.read(instr.rs1())
-                                             < static_cast<int32_t>(
-                                                 instr.sign_extended_imm_i())));
+        registers.write(
+            instr.rd(),
+            static_cast<int32_t>(registers.read(instr.rs1()))
+                < static_cast<int32_t>(instr.sign_extended_imm_i()));
         break;
       }
       case 0b011: {  // sltiu rd, rs1, imm
@@ -55,6 +55,16 @@ namespace rvcpp {
             throw std::runtime_error(
                 "Unsupported funct7 for opcode 0010011 funct3 101");
         }
+        break;
+      }
+      case 0b110: {  // ori rd, rs1, imm
+        registers.write(instr.rd(), registers.read(instr.rs1())
+                                        | instr.sign_extended_imm_i());
+        break;
+      }
+      case 0b111: {  // andi rd, rs1, imm
+        registers.write(instr.rd(), registers.read(instr.rs1())
+                                        & instr.sign_extended_imm_i());
         break;
       }
       default:

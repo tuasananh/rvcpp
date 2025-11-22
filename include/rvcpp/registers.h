@@ -10,6 +10,7 @@ namespace rvcpp {
 
   public:
     Register pc;
+    Register next_pc;
 
     Registers(Register pc, Register sp, Register gp);
 

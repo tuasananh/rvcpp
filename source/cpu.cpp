@@ -23,7 +23,6 @@ namespace rvcpp {
 
   Instruction CPU::fetch_instruction() {
     Instruction instr = memory.read<uint32_t>(registers.pc);
-    registers.pc += 4;  // Advance PC
     return instr;
   }
 
@@ -31,7 +30,9 @@ namespace rvcpp {
     // weird c++ syntax be like
     // (this->*(opcode_handlers[instr.op()]))(instr);
     // i prefer this tbh
+    registers.next_pc = registers.pc + 4;
     std::invoke(opcode_handlers[instr.op()], this, instr);
+    registers.pc = registers.next_pc;
   }
 
   void CPU::simulate() {
