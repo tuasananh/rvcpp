@@ -14,6 +14,13 @@ CPMAddPackage(NAME rvcpp SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 
 # ---- Create standalone executable ----
 
+# enable compiler warnings
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+  target_compile_options(rvcpp PUBLIC -Wall -Wpedantic -Wextra)
+elseif(MSVC)
+  target_compile_options(rvcpp PUBLIC /W4)
+endif()
+
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 
 add_executable(${PROJECT_NAME} ${sources})
