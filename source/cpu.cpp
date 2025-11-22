@@ -2,6 +2,7 @@
 
 #include <bitset>
 #include <iostream>
+#include <functional>
 
 namespace rvcpp {
   CPU::CPU(Memory& memory_)

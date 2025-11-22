@@ -1,6 +1,8 @@
 #pragma once
 
 #include <array>
+#include <cstdint>
+#include <cstddef>
 
 namespace rvcpp {
   using Register = uint32_t;

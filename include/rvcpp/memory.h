@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <stdexcept>
 #include <vector>
+#include <cstring>
 
 namespace rvcpp {
 
