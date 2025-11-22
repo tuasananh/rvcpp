@@ -13,6 +13,7 @@ namespace rvcpp {
     opcode_handlers[0b0000011] = &CPU::opcode_0000011;
     opcode_handlers[0b0010011] = &CPU::opcode_0010011;
     opcode_handlers[0b0010111] = &CPU::opcode_0010111;
+    opcode_handlers[0b0100011] = &CPU::opcode_0100011;
     opcode_handlers[0b0110011] = &CPU::opcode_0110011;
     opcode_handlers[0b0110111] = &CPU::opcode_0110111;
     opcode_handlers[0b1100011] = &CPU::opcode_1100011;

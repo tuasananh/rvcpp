@@ -23,6 +23,8 @@ namespace rvcpp {
     void opcode_0010011(const Instruction& instr);
     // Add upper immediate to PC
     void opcode_0010111(const Instruction& instr);
+    // Store instructions
+    void opcode_0100011(const Instruction& instr);
     // Register arithmetic instructions
     void opcode_0110011(const Instruction& instr);
     // Load upper immediate
