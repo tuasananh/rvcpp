@@ -5,8 +5,8 @@
 
 namespace rvcpp {
   class Machine {
-    CPU cpu;
     Memory memory;
+    CPU cpu;
 
   public:
     Machine(const std::vector<std::byte>& program);

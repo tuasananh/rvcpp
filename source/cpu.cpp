@@ -1,8 +1,8 @@
 #include <rvcpp/cpu.h>
 
 #include <bitset>
-#include <iostream>
 #include <functional>
+#include <iostream>
 
 namespace rvcpp {
   CPU::CPU(Memory& memory_)

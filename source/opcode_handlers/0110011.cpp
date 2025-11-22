@@ -30,10 +30,10 @@ namespace rvcpp {
         break;
       }
       case 0b010: {  // slt rd, rs1, rs2
-        registers.write(instr.rd(),
-                        static_cast<int32_t>(registers.read(instr.rs1())
-                                             < static_cast<int32_t>(
-                                                 registers.read(instr.rs2()))));
+        registers.write(
+            instr.rd(),
+            static_cast<int32_t>(registers.read(instr.rs1()))
+                < static_cast<int32_t>(registers.read(instr.rs2())));
         break;
       }
       case 0b011: {  // sltu rd, rs1, rs2

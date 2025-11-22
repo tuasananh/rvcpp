@@ -4,18 +4,17 @@
 #include <array>
 #include <cstddef>
 #include <cstdint>
+#include <cstring>
 #include <stdexcept>
 #include <vector>
-#include <cstring>
 
 namespace rvcpp {
 
   template <typename T>
-  concept AllowedMemoryType
-      = std::same_as<T, uint8_t> || std::same_as<T, uint16_t>
-        || std::same_as<T, uint32_t> || std::same_as<T, int8_t>
-        || std::same_as<T, int16_t> || std::same_as<T, int32_t>
-        || std::same_as<T, std::byte>;
+  concept AllowedMemoryType = std::same_as<T, uint8_t> || std::same_as<
+      T, uint16_t> || std::same_as<T, uint32_t> || std::
+      same_as<T, int8_t> || std::same_as<T, int16_t> || std::same_as<
+          T, int32_t> || std::same_as<T, std::byte>;
 
   constexpr size_t operator""_KiB(unsigned long long x) { return x * 1024; }
   constexpr size_t operator""_MiB(unsigned long long x) {
