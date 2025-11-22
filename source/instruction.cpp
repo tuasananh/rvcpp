@@ -10,6 +10,9 @@ namespace rvcpp {
   uint32_t Instruction::rs1() const { return (raw >> 15) & mask(5); }
   uint32_t Instruction::rs2() const { return (raw >> 20) & mask(5); }
   uint32_t Instruction::funct7() const { return (raw >> 25) & mask(7); }
-  uint32_t Instruction::sign_extended_imm_i() const { return (raw >> 20); }
+  uint32_t Instruction::sign_extended_imm_i() const {
+    return static_cast<uint32_t>(static_cast<int32_t>(raw) >> 20);
+  }
+  uint32_t Instruction::uimm() const { return (raw >> 20) & mask(5); }
 
 }  // namespace rvcpp

@@ -15,6 +15,7 @@ namespace rvcpp {
     uint32_t rs2() const;
     uint32_t funct7() const;
     uint32_t sign_extended_imm_i() const;
+    uint32_t uimm() const;
     uint32_t imm_s() const;
     uint32_t imm_b() const;
     uint32_t imm_u() const;
