@@ -14,7 +14,7 @@ namespace rvcpp {
 
     uint32_t text_start = Memory::get_initial_program_counter();
     for (size_t i = 0; i < program.size(); ++i) {
-      memory.write(text_start + i, program[i]);
+      memory.write(static_cast<uint32_t>(text_start + i), program[i]);
     }
   }
 
