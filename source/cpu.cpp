@@ -35,37 +35,24 @@ namespace rvcpp {
   }
 
   void CPU::simulate() {
-// Simulation logic goes here
-#ifdef _DEBUG
-    int instr_cap = 100;
-    int instr_count = 0;
-#endif
     while (true) {
       auto instr = fetch_instruction();
-
-#ifdef _DEBUG
-      instr_count++;
-      std::cerr << "Instr: " << instr_count << " PC: " << std::hex
-                << registers.pc << std::dec << "\n";
-      std::cerr << "Current instr: op=" << std::bitset<7>(instr.op())
-                << " rd=" << std::bitset<5>(instr.rd())
-                << " funct3=" << std::bitset<3>(instr.funct3())
-                << " rs1=" << std::bitset<5>(instr.rs1())
-                << " rs2=" << std::bitset<5>(instr.rs2())
-                << " funct7=" << std::bitset<7>(instr.funct7())
-                << " se_imm_i=" << std::bitset<32>(instr.sign_extended_imm_i())
-                << "\n";
-#endif
-
       execute_instruction(instr);
-
-#ifdef _DEBUG
-      if (instr_count >= instr_cap) {
-        std::cerr << "Reached instruction cap of " << instr_cap
-                  << ", stopping simulation.\n";
-        break;
-      }
-#endif
     }
   }
+
+  void CPU::simulate(size_t instruction_limit) {
+    size_t executed_instructions = 0;
+    while (executed_instructions < instruction_limit) {
+      auto instr = fetch_instruction();
+      execute_instruction(instr);
+      executed_instructions++;
+    }
+  }
+
+  Register CPU::read_register(size_t index) const {
+    return registers.read(index);
+  }
+
+  Register CPU::read_pc() const { return registers.pc; }
 }  // namespace rvcpp

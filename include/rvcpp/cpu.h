@@ -43,5 +43,9 @@ namespace rvcpp {
     CPU(Memory& memory);
 
     void simulate();
+    void simulate(size_t instruction_limit);
+
+    Register read_register(size_t index) const;
+    Register read_pc() const;
   };
 }  // namespace rvcpp
